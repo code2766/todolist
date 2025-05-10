@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -95,14 +94,19 @@ input:focus {
     display: flex;
     color: black;
     margin: 1.2vw 0vw;
-     border-radius: 10px; 
+    border-radius: 10px;
     background-color: rgba(217,157,38,1);
     padding: 0.2vw 1vw;
     max-width: 25vw;
     justify-content: space-between;
+    align-items: center; /* Align items vertically */
     height: fit-content;
-    
-    
+}
+
+#newImg, #crossId {
+    width: 1.5vw; /* Fixed size */
+    height: auto; /* Maintain aspect ratio */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 #imggId{
@@ -115,6 +119,7 @@ input:focus {
     
     width: 1vw;
 }
+
 
 
 

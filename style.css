@@ -192,7 +192,7 @@ input:focus {
 #nDiv{
     margin: 2.6vw 0vw;
      border-radius: 15px; 
-   
+   min-width: 60vw;
     padding: 0.2vw 1vw;
    
 }
@@ -203,6 +203,6 @@ input:focus {
 
 #crossId{
     padding-left:10px ;
-    width: 4vw;
+    width: 5vw;
 }
 }

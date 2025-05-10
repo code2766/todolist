@@ -25,7 +25,7 @@ let newEl = document.createElement("h3");
     nDiv.prepend(newEl)
 
     let newImg = document.createElement("img")
-    newImg.src="images/empty.svg"
+    newImg.src="images/empty.png"
     newImg.id="newImg"
     nDiv.insertBefore(newImg,newEl)
 
@@ -33,7 +33,7 @@ let newEl = document.createElement("h3");
     
     let newcross = document.createElement("img")
     newcross.id="crossId"
-    newcross.src="images/cross.svg"
+    newcross.src="images/cross.png"
     nDiv.append(newcross)
 
     let val = inp.value
@@ -44,11 +44,11 @@ let newEl = document.createElement("h3");
 
 newImg.addEventListener("click",function dessd(){
         
-        if(newImg.src .includes("images/empty.svg")){
-            newImg.src="images/tick.svg"
+        if(newImg.src .includes("images/empty.png")){
+            newImg.src="images/tick.png"
             newEl.style.textDecoration="line-through"
-        }else if (newImg.src.includes("images/tick.svg")){
-            newImg.src ="images/empty.svg"
+        }else if (newImg.src.includes("images/tick.png")){
+            newImg.src ="images/empty.png"
             newEl.style.textDecoration="none"
         }
         

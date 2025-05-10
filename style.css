@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+body{
+    background-color: rgb(245, 173, 28) ;
+    justify-content: center;
+    display: flex;
+}
+
+#card{
+background-image: linear-gradient( 100.1deg,  rgba(217,157,38,1) 16.8%, rgba(247,213,110,1) 77.3% ); 
+   min-width: 30vw;
+    height: 45vw;
+    border-radius: 20px;
+    margin: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 6px 8px 20px;
+    width: fit-content;
+}
+
+#head{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 2.3vw;
+    padding-right: 20px;
+
+}
+
+#card h1 img{
+    width: 2vw;
+    padding-left: 10px;
+    
+} 
+
+#inp{
+    width: 14vw;
+    height: 1.5vw;
+    border-radius: 1vw;
+    padding: 7px;
+    border: none;
+    font-size: 20px;
+}
+input:focus {
+  outline: none;
+  border: none; /* Optional: if you also want to remove the border */
+}
+#addButt{
+    border: none;
+    border-radius: 20px;
+    width: 3vw;
+    height: 2.2vw;
+    background-color: rgba(194, 194, 192, 0.54);
+}
+
+.inp{
+    margin-top: 1vw;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+
+
+#newEl{
+    font-size: 2vw;
+    padding-right:11vw;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 5vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#newImg{
+    width: 1.5vw;
+    padding-right: 10px;
+}
+
+#tasks{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; 
+}
+
+#nDiv{
+    display: flex;
+    color: black;
+    margin: 1.2vw 0vw;
+     border-radius: 10px; 
+    background-color: rgba(217,157,38,1);
+    padding: 0.2vw 1vw;
+    max-width: 25vw;
+    justify-content: space-between;
+    height: fit-content;
+    
+    
+}
+
+#imggId{
+    width: 1vw;
+    padding-left: 9vw;
+}
+
+#crossId{
+    display: flex;
+    
+    width: 1vw;
+}
+
+
+
+@media (max-width : 500px ){
+      
+
+#card{
+
+    width: 70vw;
+    min-height: 100vw;
+    border-radius: 20px;
+    margin: 4vw;
+   
+}
+
+#head{
+   
+    font-size: 9vw;
+    padding-left: 1.3vw;
+
+
+}
+
+#card h1 img{
+    width: 7vw;
+    padding-left: 20px;
+    
+} 
+
+#inp{
+    width: 40vw;
+    height: 4vw;
+    border-radius: 1vw;
+    padding: 7px;
+    border: none;
+    font-size: 20px;
+    margin-left: 3vw;
+}
+input:focus {
+  outline: none;
+  border: none; /* Optional: if you also want to remove the border */
+}
+#addButt{
+    border: none;
+    border-radius: 20px;
+    width: 14vw;
+    height: 9vw;
+ 
+}
+
+.inp{
+    margin-top: 1vw;
+ 
+    border-radius: 20px;
+    width: 65vw;
+    height:9vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+#newEl{
+    font-size: 8vw;
+}
+
+#newImg{
+    width: 4.7vw;
+    padding-right: 10px;
+}
+
+ 
+
+#nDiv{
+    margin: 2.6vw 0vw;
+     border-radius: 15px; 
+   
+    padding: 0.2vw 1vw;
+   
+}
+
+/* #imggId{
+    width: 1vw;
+} */
+
+#crossId{
+    padding-left:10px ;
+    width: 4vw;
+}
+
+}

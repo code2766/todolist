@@ -1,69 +1,87 @@
+let butt = document.querySelector("#addButt");
+let inp = document.querySelector("#inp");
+let task = document.querySelector("#tasks");
 
-let butt = document.querySelector("#addButt")
-let inp = document.querySelector("#inp")
+// Load tasks from local storage on page load
+window.addEventListener("load", function () {
+    let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    savedTasks.forEach(taskObj => {
+        createTask(taskObj.text, taskObj.completed);
+    });
+});
 
-let task = document.querySelector("#tasks")
-// let untick = document.querySelector("#imggg")
+// Add event listener to the "Add" button
+butt.addEventListener("click", function () {
+    if (inp.value === "") {
+        alert("No value entered");
+    } else {
+        let val = inp.value;
+        createTask(val, false);
 
+        // Save to local storage
+        let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        savedTasks.push({ text: val, completed: false });
+        localStorage.setItem("tasks", JSON.stringify(savedTasks));
 
+        inp.value = ""; // Clear input field
+    }
+});
 
-butt.addEventListener("click",function dd(){
+// Function to create a task
+function createTask(val, isCompleted) {
+    let nDiv = document.createElement("div");
+    task.prepend(nDiv);
+    nDiv.id = "nDiv";
 
-    if(inp.value === ""){
-        alert("No value entered")
-        
-    }else{
+    let newEl = document.createElement("h3");
+    newEl.id = "newEl";
+    newEl.innerText = val;
+    nDiv.prepend(newEl);
 
+    let newImg = document.createElement("img");
+    newImg.src = isCompleted ? "images/tick.png" : "images/empty.png";
+    newImg.id = "newImg";
+    nDiv.insertBefore(newImg, newEl);
 
-        let nDiv = document.createElement("div")
-    task.prepend(nDiv)
-    nDiv.id="nDiv"
+    let newcross = document.createElement("img");
+    newcross.id = "crossId";
+    newcross.src = "images/cross.png";
+    nDiv.append(newcross);
 
+    // Apply completed styles if the task is already completed
+    if (isCompleted) {
+        newEl.style.textDecoration = "line-through";
+    }
 
-let newEl = document.createElement("h3");
-    newEl.id="newEl"
-    nDiv.prepend(newEl)
+    // Mark task as completed or uncompleted
+    newImg.addEventListener("click", function () {
+        let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        let taskIndex = savedTasks.findIndex(taskObj => taskObj.text === val);
 
-    let newImg = document.createElement("img")
-    newImg.src="images/empty.png"
-    newImg.id="newImg"
-    nDiv.insertBefore(newImg,newEl)
-
-
-    
-    let newcross = document.createElement("img")
-    newcross.id="crossId"
-    newcross.src="images/cross.png"
-    nDiv.append(newcross)
-
-    let val = inp.value
-    newEl.innerText=val
-    inp.value=""
-
-
-
-newImg.addEventListener("click",function dessd(){
-        
-        if(newImg.src .includes("images/empty.png")){
-            newImg.src="images/tick.png"
-            newEl.style.textDecoration="line-through"
-        }else if (newImg.src.includes("images/tick.png")){
-            newImg.src ="images/empty.png"
-            newEl.style.textDecoration="none"
+        if (newImg.src.includes("images/empty.png")) {
+            newImg.src = "images/tick.png";
+            newEl.style.textDecoration = "line-through";
+            if (taskIndex !== -1) savedTasks[taskIndex].completed = true;
+        } else if (newImg.src.includes("images/tick.png")) {
+            newImg.src = "images/empty.png";
+            newEl.style.textDecoration = "none";
+            if (taskIndex !== -1) savedTasks[taskIndex].completed = false;
         }
-        
-    }
-)
 
-newcross.addEventListener("click",function def(){
-    nDiv.remove()
-})
+        localStorage.setItem("tasks", JSON.stringify(savedTasks));
+    });
 
+    // Remove task
+    newcross.addEventListener("click", function () {
+        nDiv.remove();
 
-    }
+        // Remove from local storage
+        let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        savedTasks = savedTasks.filter(taskObj => taskObj.text !== val);
+        localStorage.setItem("tasks", JSON.stringify(savedTasks));
+    });
+}
 
-})
-    
 //GSAP
 let tl = gsap.timeline()
 tl.from("#card",{
